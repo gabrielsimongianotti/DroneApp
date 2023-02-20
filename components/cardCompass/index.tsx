@@ -13,13 +13,16 @@ export function CardCompass() {
 
 const styles = StyleSheet.create({
   compass: {
-    
+    position: "absolute",
     alignItems: 'center',
     alignSelf: 'center',
     marginBottom: "15%",
     justifyContent: "center",
-    transform: [{ rotate: '-1deg'}],
-    width: 300,
-    height: 300,
+    left: "25%",
+    top: "-27%",
+    // transform: [{ rotate: '-1deg'}],
+    width: 370,
+    // backgroundColor: "red",
+    height: 270,
   },
 });

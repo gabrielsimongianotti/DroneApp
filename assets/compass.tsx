@@ -24,7 +24,7 @@ export const Compass = (props) => (
 const styles = StyleSheet.create({
   container: {
     position: "absolute",
-    left: 112,
-    top: 135,
+    left: 147,
+    top: 170,
   },
 });

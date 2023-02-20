@@ -1,12 +1,14 @@
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View,Text } from 'react-native';
 import { Monitor } from '../../components/monito';
 import { ArrowTop } from '../../assets/arrowTop';
 import { ArrowLeft } from '../../assets/arrowLeft';
 import { ArrowDown } from '../../assets/arrowDown';
 import { ArrowRight } from '../../assets/arrowRight';
 import { CardCompass } from '../../components/cardCompass';
-
+ 
 export  function Home() {
+  const handleMove =(event)=>{console.log(event)}
+  const handleStop =(event)=>{console.log(event)}
   return (
     <View style={styles.container}>
       <Monitor />
