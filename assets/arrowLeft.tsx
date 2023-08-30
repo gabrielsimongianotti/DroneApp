@@ -2,13 +2,17 @@ import React, { useState } from 'react';
 import { TouchableHighlight, StyleSheet } from 'react-native';
 import Svg, { Path } from "react-native-svg"
 
-export  function ArrowLeft() {
+export  function ArrowLeft({sendWebSocketMessage}: { sendWebSocketMessage: (message: string) => void }) {
   const [active, setActive] = useState(false)
   return (
     <TouchableHighlight style={styles.container}
     onPressOut={()=>setActive(false)} 
     onPressIn={()=>setActive(true)} 
-    underlayColor={active?"rgba(0, 0, 0, 0)":"rgba(0, 0, 0, 0)"}>
+    underlayColor={active?"rgba(0, 0, 0, 0)":"rgba(0, 0, 0, 0)"}
+    onPress={() => {
+      console.log("web:turnLeft")
+      sendWebSocketMessage("web:turnLeft")
+    }}>
        { active?       
         <Svg width="40" height="205" viewBox="0 0 88 205" fill="none">
           <Path d="M81.8169 151.151C84.9777 155.49 84.9143 161.574 81.118 165.37L48.8291 197.659C44.8634 201.625 38.3838 201.574 34.7935 197.265C13.4594 171.663 0.628174 138.729 0.628174 102.797C0.628174 66.8648 13.4548 33.9406 34.7933 8.33497C38.3838 4.02652 44.8634 3.97571 48.8291 7.94146L81.118 40.2303C84.9143 44.0266 84.9777 50.1101 81.8167 54.4497C71.9361 68.0144 66.1005 84.7199 66.1005 102.797C66.1005 120.875 71.9362 137.585 81.8169 151.151Z" fill="#1B4AF5" opacity={0.15} stroke="#1B4AF5" strokeWidth={5} strokeOpacity={100}/>

@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 import { StyleSheet, TouchableHighlight } from 'react-native';
 import Svg, { Path } from "react-native-svg"
 
-export  function ArrowTop() {
+export  function ArrowTop({sendWebSocketMessage}: { sendWebSocketMessage: (message: string) => void }) {
   const [active, setActive] = useState(false)
   return (
     <TouchableHighlight
     style={styles.container}
-    onPressOut={()=>setActive(false)} 
-    onPressIn={()=>setActive(true)} 
-    underlayColor={active?"rgba(0, 0, 0, 0)":"rgba(0, 0, 0, 0)"}>
+    onHideUnderlay={()=>setActive(false)} 
+    onShowUnderlay={()=>setActive(true)} 
+    underlayColor={active?"rgba(0, 0, 0, 0)":"rgba(0, 0, 0, 0)"}
+    onPress={() => {
+      console.log("web:toFront")
+      sendWebSocketMessage("web:toFront")
+    }}>
     { active ?  
       <Svg width="205" height="40" viewBox="0 0 205 89" fill="none">
         <Path d="M54.1989 82.1649C49.8592 85.3257 43.7757 85.2623 39.9794 81.466L7.69052 49.1771C3.72478 45.2114 3.77558 38.7318 8.0841 35.1414C33.6906 13.8029 66.6193 0.976192 102.546 0.976195C138.472 0.976198 171.41 13.8072 197.014 35.1412C201.323 38.7315 201.373 45.2115 197.407 49.1772L165.115 81.4654C161.318 85.2619 155.233 85.3244 150.893 82.1627C137.328 72.2799 120.619 66.4485 102.546 66.4485C84.474 66.4485 67.7649 72.2842 54.1989 82.1649Z" fill="#1B4AF5" opacity={0.15} stroke="#1B4AF5" strokeWidth={5} strokeOpacity={100} />
